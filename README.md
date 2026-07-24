@@ -1,10 +1,67 @@
 # Welcome to the Unify Release Orchestration Hands-On Lab!
 
-In this Hands-on experience, we'll build out an application made up of three separate components. 
+In this hands-on lab, you'll build out **TaskFlow** — a small task-management application made up of three components — and use CloudBees Unify to take it through the full release orchestration lifecycle: connecting repos, building and deploying each component, orchestrating a staged release across environments with an approval gate, and flipping a feature flag live without a redeploy.
 
-To get started, fork each of the following repos to your own account:
+No prior CloudBees Unify experience is assumed.
 
-1. [taskflow-frontend](https://github.com/cb-unify-enterprise-poc/taskflow-frontend) — description of what it's for
-2. [taskflow-backend](https://github.com/cb-unify-enterprise-poc/taskflow-backend) — description of what it's for
-3. [taskflow-db](https://github.com/cb-unify-enterprise-poc/taskflow-db) — description of what it's for
-4. [app-taskflow](https://github.com/cb-unify-enterprise-poc/app-taskflow)
+## What you'll do today
+
+- Connect a repo to Unify and create your first Component with a real build workflow
+- Add the rest of TaskFlow's components and wire them into an Application
+- Run a staged release through DEV → STAGING → PROD, approving a gate along the way
+- Create a feature flag in CloudBees Unify and flip it live in a running app — no redeploy required
+
+## Before you start
+
+Make sure you have:
+
+- A **GitHub account**
+- A **CloudBees Unify account** (your facilitator will confirm if one's already been provisioned for you)
+- **Git**, **Docker + Docker Compose**, **Python 3.11+**, and **Node.js 18+** installed locally
+
+Check your local tools:
+```bash
+git --version
+docker --version
+docker compose version
+python3 --version
+node --version
+```
+
+## Get your own copies of TaskFlow
+
+Each of the four repos below is a **GitHub template repository** — you're not forking them, you're creating your own independent copy with no shared history back to the original.
+
+For each repo:
+1. Open the repo link below.
+2. Select **Use this template > Create a new repository**.
+3. Choose **your own GitHub account** as the owner.
+4. **Keep the repository name exactly as listed below** — the Application-level workflow in `app-taskflow` references the other three repos by name, so renaming any of them will break that reference.
+5. Select **Create repository**.
+
+| Repo | What it's for |
+|---|---|
+| [taskflow-frontend](https://github.com/cb-unify-enterprise-poc/taskflow-frontend) | The React UI for TaskFlow — the app you'll be releasing today. |
+| [taskflow-backend](https://github.com/cb-unify-enterprise-poc/taskflow-backend) | The Flask API behind TaskFlow, including the feature-flagged endpoint you'll wire up in the Feature Management module. |
+| [taskflow-db](https://github.com/cb-unify-enterprise-poc/taskflow-db) | The Postgres schema for TaskFlow's task data. |
+| [app-taskflow](https://github.com/cb-unify-enterprise-poc/app-taskflow) | No application source code — this repo holds the Application-level release-orchestration workflows that tie the other three components together into a single release. |
+
+Once you've created your copy of `app-taskflow`, one small edit is needed before you push anything: open `.cloudbees/workflows/deployer.yaml` and replace every `<YOUR_GITHUB_ORG>` placeholder with your own GitHub username, so it points at *your* copies of the other three repos rather than the original template's.
+
+## Where to go next
+
+Follow the modules in order — each one builds on the last:
+
+1. `00-prerequisites.md` — confirm your setup and get TaskFlow running locally, before touching Unify at all
+2. `01-orientation.md` — a five-minute primer on how Unify's Organizations, Components, Applications, and Environments fit together
+3. `02-first-workflow.md` — connect `taskflow-backend` and run your first build
+4. `03-multi-component-app.md` — add the rest of the components and create the Application
+5. `04-release-orchestration.md` — run a staged release with an approval gate
+6. `05-feature-flags.md` — create and flip a feature flag live
+7. `06-wrap-up-next-steps.md` — recap and where to go deeper
+
+*(Ask your facilitator where these are hosted for this session if you don't see them linked directly from here.)*
+
+## Questions during the lab
+
+Don't struggle silently — flag your facilitator. If something in the Unify UI doesn't match a screenshot exactly, that's expected (the product moves fast); the underlying concept will still be right.
