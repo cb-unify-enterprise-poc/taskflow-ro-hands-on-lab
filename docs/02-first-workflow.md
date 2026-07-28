@@ -9,7 +9,7 @@ Goal: connect `taskflow-backend` to Unify, create a Component for it, and add a 
 
 ## Step 2 — Create the Component
 
-1. Navigate to **Components > Create Component**. (Blue button in upper-right)
+1. Navigate to **Components > Create Component**.
 2. Name: `taskflow-backend`.
 3. Repository: your `taskflow-backend` repo.
 4. Branch: `main`.
