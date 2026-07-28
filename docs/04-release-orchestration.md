@@ -127,7 +127,7 @@ The release continues on to STAGING and PROD on its own.
 | taskflow-backend | v0.1 | v0.1 | v0.1 |
 | taskflow-frontend | v0.1 | v0.1 | v0.1 |
 
-Worth saying out loud to the room: **Release Orchestration coordinates deployment execution — it doesn't perform the deployment itself.** The actual deploy logic lives entirely inside each component's `deploy.yaml`, which means you can point it at any deployment platform or tooling you already use.
+NOTE: **Release Orchestration coordinates deployment execution — it doesn't perform the deployment itself.** The actual deploy logic lives entirely inside each component's `deploy.yaml`, which means you can point it at any deployment platform or tooling you already use.
 
 ## Troubleshooting
 
