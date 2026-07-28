@@ -49,7 +49,9 @@ jobs:
     with:
       disallowLaunchByUser: false
       notifyAllEligibleUsers: false
-      approvers: Admins (System)
+      #Intentionally making this blank so you can approve your own for this workshop. 
+      #The approvers field supports both user IDs and email addresses when needed
+      approvers: ""
       approvalInputs: |
         Comment:
           type: string
