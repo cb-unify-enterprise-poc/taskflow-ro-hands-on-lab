@@ -17,7 +17,7 @@ Goal: connect `taskflow-backend` to Unify, create a Component for it, and add a 
 
 ## Step 3 — Add the build workflow
 
-Create `.cloudbees/workflows/build.yaml` in `taskflow-backend` (already present if you're using the app code from this workshop bundle):
+Create `.cloudbees/workflows/build.yaml` in `taskflow-backend`:
 
 ```yaml
 apiVersion: automation.cloudbees.io/v1alpha1
