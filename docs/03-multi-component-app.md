@@ -135,6 +135,16 @@ jobs:
           echo "Deploying docker.io/mock/backend:${{ inputs.version }} to ${{ inputs.environment }}"
           # Replace with a real deploy step for your infrastructure.
 
+      - name: Publish evidence
+        uses: cloudbees-io/publish-evidence-item@v1
+        with:
+          content: |-
+            ## Deployed environment
+            **Component:** taskflow-backend
+            **Version:** ${{ inputs.version }}
+            **Environment:** ${{ inputs.environment }}
+          format: MARKDOWN
+
       - name: Register deployed artifact
         uses: cloudbees-io/register-deployed-artifact@v2
         with:
