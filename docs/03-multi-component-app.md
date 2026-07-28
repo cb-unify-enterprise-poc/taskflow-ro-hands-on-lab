@@ -171,7 +171,7 @@ If you already have environments with these names from a previous Application in
 
 ## Step 6 — Create the Application in Unify
 
-1. **Applications > Add Application**.
+1. **Applications > Create Application**.
 2. Name: `app-taskflow`. Repository: `app-taskflow`. Branch: `main`.
 3. Select **Add environment**, and add `DEV`, `STAGING`, and `PROD` — one at a time — from the environments you created in Step 4. This is what links them to this Application; without it, they won't show up later when you're setting up feature flags or a release.
 4. Select **Create**.
