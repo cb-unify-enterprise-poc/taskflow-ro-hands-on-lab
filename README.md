@@ -36,19 +36,18 @@ For each repo:
 | [taskflow-db](https://github.com/cb-unify-enterprise-poc/taskflow-db) | The Postgres schema for TaskFlow's task data. |
 | [app-taskflow](https://github.com/cb-unify-enterprise-poc/app-taskflow) | No application source code — this repo holds the Application-level release-orchestration workflows that tie the other three components together into a single release. |
 
-Once you've created your copy of `app-taskflow`, one small edit is needed before you push anything: open `.cloudbees/workflows/deployer.yaml` and replace every `<YOUR_GITHUB_ORG>` placeholder with your own GitHub username, so it points at *your* copies of the other three repos rather than the original template's.
 
 ## Where to go next
 
 Follow the modules in order — each one builds on the last:
 
-1. `00-prerequisites.md` — confirm your setup and get TaskFlow running locally, before touching Unify at all
-2. `01-orientation.md` — a five-minute primer on how Unify's Organizations, Components, Applications, and Environments fit together
-3. `02-first-workflow.md` — connect `taskflow-backend` and run your first build
-4. `03-multi-component-app.md` — add the rest of the components and create the Application
-5. `04-release-orchestration.md` — run a staged release with an approval gate
-6. `05-feature-flags.md` — create and flip a feature flag live
-7. `06-wrap-up-next-steps.md` — recap and where to go deeper
+1. [00-prerequisites.md](docs/00-prerequisites.md) — confirm your setup and get TaskFlow running locally, before touching Unify at all
+2. [01-orientation.md](docs/01-orientation.md) — a primer on how Unify's Organizations, Components, Applications, and Environments fit together
+3. [02-first-workflow.md](docs/02-first-workflow.md) — connect `taskflow-backend` and run your first build
+4. [03-multi-component-app.md](docs/03-multi-component-app.md) — add the rest of the components and create the Application
+5. [04-release-orchestration.md](docs/04-release-orchestration.md) — run a staged release with an approval gate
+6. [05-feature-flags.md](docs/05-feature-flags.md) — create and flip a feature flag live
+7. [06-wrap-up-next-steps.md](docs/06-wrap-up.md) — recap and where to go deeper
 
 *(Ask your facilitator where these are hosted for this session if you don't see them linked directly from here.)*
 
