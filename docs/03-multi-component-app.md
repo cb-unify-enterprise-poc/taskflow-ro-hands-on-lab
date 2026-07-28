@@ -4,7 +4,7 @@ Goal: bring `taskflow-frontend` and `taskflow-db` up to the same state as the ba
 
 ## Step 1 — Create the frontend Component and build workflow
 
-1. **Components > Add Component** → name `taskflow-frontend`, repo `taskflow-frontend`, branch `main`.
+1. **Components > Create Component** → name `taskflow-frontend`, repo `taskflow-frontend`, branch `main`.
 2. Add `.cloudbees/workflows/build.yaml`:
 
 ```yaml
