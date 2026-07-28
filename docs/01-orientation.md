@@ -1,6 +1,6 @@
 # 01 — Orientation: How Unify Is Put Together
 
-Five minutes of concepts before we start clicking, so the rest of the workshop makes sense as you go.
+Let's spend some time learning the concepts before we start clicking, so the rest of the workshop makes sense as you go.
 
 ## The building blocks
 
