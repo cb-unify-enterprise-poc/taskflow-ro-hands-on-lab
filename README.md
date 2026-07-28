@@ -24,7 +24,7 @@ Each of the four repos below is a **GitHub template repository** — you're not 
  
 For each repo:
 1. Open the repo link below.
-2. Select **Use this template > Create a new repository**.
+2. In the upper right corner of the newly opened repo, select **Use this template > Create a new repository**.
 3. Choose **your own GitHub account** as the owner.
 4. **Keep the repository name exactly as listed below** — the Application-level workflow in `app-taskflow` references the other three repos by name, so renaming any of them will break that reference.
 5. Select **Create repository**.
