@@ -6,7 +6,7 @@ TaskFlow's backend already ships with the flag code in place (see `app/backend/f
 
 ## Step 1 — Get an SDK key
 
-1. In your `TaskFlow` Application, go to **Feature management** > **Flags**.
+1. Within Unify, in your `TaskFlow` Application, go to **Feature management** > **Flags**.
 2. If prompted, link a `dev` environment for feature management (separate from the release-orchestration Environments you made earlier, though the names can overlap).
 3. Copy the **SDK key** shown for that environment.
 
@@ -63,36 +63,26 @@ def meta():
 
 The frontend already calls `/api/meta` and shows a banner / priority label based on the response (see `app/frontend/src/App.jsx`).
 
-## Step 3 — Run the backend with your SDK key
+## Step 3 — Get added to the shared demo environment
 
-```bash
-cd app/backend
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-export ROX_SDK_KEY="<paste your SDK key>"
-export DATABASE_URL="postgresql+psycopg://taskflow:taskflow@localhost:5432/taskflow"
-python app.py
-```
+TaskFlow's backend is already running for you — your facilitator hosts a shared environment specifically so you don't need to install Python, Docker, or anything else locally just to see this part work.
 
-(Keep Postgres running from `docker compose up db` if you stopped it earlier.)
+1. Paste your SDK key into the workshop's shared chat when asked.
+2. Your facilitator adds it to their environment and gives you back a URL (something like `http://<facilitator's-ip>:800N`).
+3. Open that URL in your browser — you should see TaskFlow's UI, no banner yet.
 
-Hit the meta endpoint once so the SDK registers the flags with Unify:
-
-```bash
-curl http://localhost:8000/api/meta
-```
+Behind the scenes, hitting that URL for the first time is what makes the SDK evaluate the flags and register them with Unify — same mechanism as if you'd run it yourself.
 
 ## Step 4 — Confirm the flags showed up in Unify
 
-Back in **Feature management** > **Flags** for your `TaskFlow` Application, you should now see `show_due_date_banner` (Boolean) and `task_priority_label` (String) — auto-detected the moment the SDK evaluated them for the first time. If you don't see them yet, hit `/api/meta` again; registration happens on first evaluation, per [Build your first feature-flagged backend service](https://docs.cloudbees.com/docs/cloudbees-unify/latest/feature-management/tutorials/backend-service-examples).
+Back in **Feature management** > **Flags** for your `TaskFlow` Application, you should now see `show_due_date_banner` (Boolean) and `task_priority_label` (String) — auto-detected the moment the SDK evaluated them for the first time. If you don't see them yet, reload the page your facilitator gave you once more; registration happens on first evaluation, per [Build your first feature-flagged backend service](https://docs.cloudbees.com/docs/cloudbees-unify/latest/feature-management/tutorials/backend-service-examples).
 
 ## Step 5 — Flip a flag live
 
 1. Next to `show_due_date_banner`, select the menu > **Configure**.
 2. Pick your environment, change the value to `true`, select **Save**, and make sure **Configuration status** is **On**.
-3. Refresh `curl http://localhost:8000/api/meta` (or reload the frontend at http://localhost:5173 if you're running it too) — the banner value flips within a few seconds, with no restart and no redeploy.
-4. Do the same with `task_priority_label`, setting it to `"high"`.
+3. Go back to the browser tab with your TaskFlow URL and **refresh the page** — the banner appears, with no restart and no redeploy anywhere.
+4. Do the same with `task_priority_label`, setting it to `"high"` — refresh again and the priority label next to each task changes too.
 
 ## Step 6 — Talk about why this matters
 
@@ -103,5 +93,25 @@ Back in **Feature management** > **Flags** for your `TaskFlow` Application, you 
 ## Checkpoint
 
 You've created flags in Unify, connected a real backend service to them with the server-side SDK, and changed live behavior with no deploy. That's the full loop: CI (Module 2–3) → release orchestration (Module 4) → feature management (Module 5).
+
+## Optional: running this yourself instead of using the shared environment
+
+If you'd rather see this on your own machine (or want to explore further after the workshop), the shared environment isn't required — everything it does, you can do locally:
+
+```bash
+cd taskflow-backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+export ROX_SDK_KEY="<paste your SDK key>"
+export DATABASE_URL="sqlite:////tmp/taskflow.db"   # or a real Postgres URL if you have one running
+python app.py
+```
+
+Then in another terminal:
+```bash
+curl http://localhost:8000/api/meta
+```
+That first hit registers the flags with Unify, same as opening the shared URL does. From here, Steps 4-5 above work identically, just refreshing `curl` (or a locally-run frontend) instead of the facilitator's URL.
 
 Next: [06-wrap-up-next-steps.md](06-wrap-up-next-steps.md)
