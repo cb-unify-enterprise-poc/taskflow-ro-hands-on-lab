@@ -1,37 +1,27 @@
 # Welcome to the Unify Release Orchestration Hands-On Lab!
-
+ 
 In this hands-on lab, you'll build out **TaskFlow** — a small task-management application made up of three components — and use CloudBees Unify to take it through the full release orchestration lifecycle: connecting repos, building and deploying each component, orchestrating a staged release across environments with an approval gate, and flipping a feature flag live without a redeploy.
-
+ 
 No prior CloudBees Unify experience is assumed.
-
+ 
 ## What you'll do today
-
+ 
 - Connect a repo to Unify and create your first Component with a real build workflow
 - Add the rest of TaskFlow's components and wire them into an Application
 - Run a staged release through DEV → STAGING → PROD, approving a gate along the way
 - Create a feature flag in CloudBees Unify and flip it live in a running app — no redeploy required
-
 ## Before you start
-
+ 
 Make sure you have:
-
+ 
 - A **GitHub account**
 - A **CloudBees Unify account** (your facilitator will confirm if one's already been provisioned for you)
-- **Git**, **Docker + Docker Compose**, **Python 3.11+**, and **Node.js 18+** installed locally
-
-Check your local tools:
-```bash
-git --version
-docker --version
-docker compose version
-python3 --version
-node --version
-```
-
+That's it — no local installs needed. Everything runs in CloudBees Unify's own build/deploy containers, in your browser, or (for the Feature Management module) on a shared environment your facilitator hosts and gives you a link to. You won't need Docker, Python, Node.js, or even git on your own machine to complete this lab.
+ 
 ## Get your own copies of TaskFlow
-
+ 
 Each of the four repos below is a **GitHub template repository** — you're not forking them, you're creating your own independent copy with no shared history back to the original.
-
+ 
 For each repo:
 1. Open the repo link below.
 2. Select **Use this template > Create a new repository**.
