@@ -154,9 +154,9 @@ jobs:
 
 Commit and push `deploy.yaml` to all three component repos.
 
-## Step 4 — Create Environments
+## Step 4 — Create Environments (No action needed here)
 
-Environments are created once at the **organization** level, then linked to whichever Applications need them — they aren't created "inside" an Application.
+Environments are created once at the **organization** level, then linked to whichever Applications need them — they aren't created "inside" an Application. (THIS STEP HAS ALREADY BEEN COMPLETED PRIOR TO THE LAB)
 
 1. Go to your organization's **Configurations > Environments**.
 2. Select **Create environment** and create `DEV`.
@@ -164,10 +164,10 @@ Environments are created once at the **organization** level, then linked to whic
 
 If you already have environments with these names from a previous Application in this org, you can reuse them — you don't need a fresh set per Application.
 
-## Step 5 — Create the Application repository
+## Step 5 — Verify that the Application repository has been copied over to your local GitHub
 
-1. Create a new, empty GitHub repo: `app-taskflow` (README only, no source — this repo just carries the Application-level orchestration workflows).
-2. This workshop bundle's `app/app-taskflow/` folder already has what you need — push it here.
+1. Quick check to ensure you copied over `app-taskflow` at the start of the session. (It contains a README only, no source — this repo just carries the Application-level orchestration workflows).
+2. If you do not have this, follow the steps in this repositories README.md file for instructions on how to copy it.
 
 ## Step 6 — Create the Application in Unify
 
