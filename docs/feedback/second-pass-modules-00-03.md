@@ -1,6 +1,6 @@
 # SE Review — Second Pass: Detailed Live Notes, Modules 00–03
 
-**Reviewer:** Danny Dreakford (SE, CloudBees) — ddreakford@cloudbees.com
+**Reviewer:** Dwayne Dreakford (SE, CloudBees) — ddreakford@cloudbees.com
 **Purpose:** the first live pass through Modules 00–04 (see `2026-09-21-se-review.md`) surfaced issues but didn't capture step-by-step notes for Modules 00–03 — those were deferred to this second, detailed pass. This file is that pass: a fresh walkthrough of Modules 00–03, repo(s) rebuilt from scratch, one entry per step regardless of whether anything went wrong.
 **Scope:** Modules 00 (prerequisites) through 03 (multi-component app). Module 05 (feature flags) is intentionally out of scope for this pass — on hold pending 2026-09-22 discussion with the workshop author on how to handle it.
 
