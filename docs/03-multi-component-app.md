@@ -37,7 +37,7 @@ jobs:
           npm run build
 
       - name: Register build artifact
-        uses: cloudbees-io/register-build-artifacts@main
+        uses: cloudbees-io/register-build-artifacts@v1.0.6
         with:
           artifact-metadata: |
             [
@@ -50,7 +50,7 @@ jobs:
             ]
 ```
 
-3. Commit, push, and run the build workflow once so a version exists.
+3. Commit, push, and run the build workflow once so a version exists (no local git? see [Creating and editing files without git](00-prerequisites.md#creating-and-editing-files-without-git)).
 
 ## Step 2 — Create the db Component and build workflow
 
@@ -87,7 +87,7 @@ jobs:
           sqlfluff lint --dialect postgres init.sql
 
       - name: Register build artifact
-        uses: cloudbees-io/register-build-artifacts@main
+        uses: cloudbees-io/register-build-artifacts@v1.0.6
         with:
           artifact-metadata: |
             [
@@ -100,7 +100,7 @@ jobs:
             ]
 ```
 
-3. Commit, push, and run it.
+3. Commit, push, and run it (no local git? see [Creating and editing files without git](00-prerequisites.md#creating-and-editing-files-without-git)).
 
 **You must build all three components before creating a release** — the `register-build-artifacts` step is what makes a version available in Module 4's manifest generator.
 
@@ -152,7 +152,9 @@ jobs:
           target-environment: ${{ inputs.environment }}
 ```
 
-Commit and push `deploy.yaml` to all three component repos.
+Commit and push `deploy.yaml` to all three component repos (no local git? see [Creating and editing files without git](00-prerequisites.md#creating-and-editing-files-without-git)).
+
+**Before continuing:** confirm each `deploy.yaml`'s `jobs:` key is named `deploy` (not `build`) and that `on.workflow_call.inputs` lists `environment`, `artifact-id`, and `version`. A common mistake when copying these files by hand is ending up with `build.yaml`'s content in `deploy.yaml`, or vice versa — this won't produce an error until Module 4's release actually runs, so it's easy to miss here.
 
 ## Step 4 — Create Environments (No action needed here)
 
@@ -236,7 +238,7 @@ jobs:
 
 Replace `<YOUR_GITHUB_ORG>` with your actual GitHub username/org in all three `uses:` lines. Note the `needs:` chain — db deploys before backend, backend before frontend — and the `if:` guard, which lets a release deploy only the components actually included in the manifest.
 
-Commit and push.
+Commit and push (no local git? see [Creating and editing files without git](00-prerequisites.md#creating-and-editing-files-without-git)).
 
 ## Checkpoint
 
