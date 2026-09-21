@@ -41,13 +41,13 @@ For each repo:
 
 Follow the modules in order — each one builds on the last:
 
-1. [00-prerequisites.md](docs/00-prerequisites.md) — confirm your setup and get TaskFlow running locally, before touching Unify at all
+1. [00-prerequisites.md](docs/00-prerequisites.md) — confirm your setup — no local tools required
 2. [01-orientation.md](docs/01-orientation.md) — a primer on how Unify's Organizations, Components, Applications, and Environments fit together
 3. [02-first-workflow.md](docs/02-first-workflow.md) — connect `taskflow-backend` and run your first build
 4. [03-multi-component-app.md](docs/03-multi-component-app.md) — add the rest of the components and create the Application
 5. [04-release-orchestration.md](docs/04-release-orchestration.md) — run a staged release with an approval gate
 6. [05-feature-flags.md](docs/05-feature-flags.md) — create and flip a feature flag live
-7. [06-wrap-up-next-steps.md](docs/06-wrap-up.md) — recap and where to go deeper
+7. [06-wrap-up.md](docs/06-wrap-up.md) — recap and where to go deeper
 
 *(Ask your facilitator where these are hosted for this session if you don't see them linked directly from here.)*
 
