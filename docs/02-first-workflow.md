@@ -49,7 +49,7 @@ jobs:
           pytest -v
 
       - name: Register build artifact
-        uses: cloudbees-io/register-build-artifacts@main
+        uses: cloudbees-io/register-build-artifacts@v1.0.6
         with:
           artifact-metadata: |
             [
@@ -67,7 +67,7 @@ A few things worth pointing out as you read this:
 - The Docker image name (`docker.io/mock/backend`) is a placeholder — this workshop doesn't push to a real registry, so we're registering a *mock* artifact purely to demonstrate version tracking. Swap in your real image/registry when you adapt this for actual use.
 - `register-build-artifacts` is the action that makes this version show up in the release manifest generator in Module 4. Without it, Unify has no build to deploy.
 
-Commit and push.
+Commit and push (no local git? see [Creating and editing files without git](00-prerequisites.md#creating-and-editing-files-without-git)).
 
 ## Step 4 — Trigger the build and note the version
 
