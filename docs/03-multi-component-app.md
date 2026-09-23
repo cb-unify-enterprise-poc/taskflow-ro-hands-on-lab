@@ -159,8 +159,8 @@ Commit and push `deploy.yaml` to all three component repos.
 Environments are created once at the **organization** level, then linked to whichever Applications need them — they aren't created "inside" an Application. (THIS STEP HAS ALREADY BEEN COMPLETED PRIOR TO THE LAB)
 
 1. Go to your organization's **Configurations > Environments**.
-2. Select **Create environment** and create `DEV`.
-3. Repeat for `STAGING` and `PROD`.
+2. Select **Create environment** and create `WS-DEV`.
+3. Repeat for `WS-STAGING` and `WS-PROD`.
 
 If you already have environments with these names from a previous Application in this org, you can reuse them — you don't need a fresh set per Application.
 
@@ -173,7 +173,7 @@ If you already have environments with these names from a previous Application in
 
 1. **Applications > Create Application**.
 2. Name: `app-taskflow`. Repository: `app-taskflow`. Branch: `main`.
-3. Select **Add environment**, and add `DEV`, `STAGING`, and `PROD` — one at a time — from the environments you created in Step 4. This is what links them to this Application; without it, they won't show up later when you're setting up feature flags or a release.
+3. Select **Add environment**, and add `WS-DEV`, `WS-STAGING`, and `WS-PROD` — one at a time — from the environments you created in Step 4. This is what links them to this Application; without it, they won't show up later when you're setting up feature flags or a release.
 4. Select **Create**.
 5. Open the `app-taskflow` Application, go to **Components > Add Component**, and add `taskflow-db`, `taskflow-backend`, and `taskflow-frontend`.
 
