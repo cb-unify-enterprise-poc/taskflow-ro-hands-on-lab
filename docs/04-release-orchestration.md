@@ -83,7 +83,7 @@ For Unify to recognize this as a **release workflow** (selectable when creating 
 - `metadata.stages/v1alpha1` defining the stages
 - sequential `needs` dependencies between the stage jobs
 
-Commit and push. If it doesn't show up as a release workflow option right away, give Unify 2–3 minutes to rescan.
+Commit and push (no local git? see [Creating and editing files without git](00-prerequisites.md#creating-and-editing-files-without-git)). If it doesn't show up as a release workflow option right away, give Unify 2–3 minutes to rescan.
 
 ## Step 2 — Create a release
 
@@ -140,6 +140,8 @@ NOTE: **Release Orchestration coordinates deployment execution — it doesn't pe
 **Stages not executing in order** — check the `needs:` chain (`STAGING needs Approve`, `PROD needs STAGING`).
 
 **No one can approve the release** — confirm the user is in the approvers group referenced in `Approve` (`Admins (System)` here), and check group membership under **Settings > Teams**.
+
+**`unknown input 'artifact-id'` / `'environment'` / `'version'` on a component job** — that component's `deploy.yaml` doesn't declare a matching `workflow_call.inputs` block, most likely because it has the wrong file content (e.g., a copy of `build.yaml`). Compare it against the Module 3 Step 3 template.
 
 ## Checkpoint
 
